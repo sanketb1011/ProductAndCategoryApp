@@ -1,0 +1,41 @@
+﻿@model ProductApp.Data.ProductView
+@{
+    ViewData["Title"] = "AddProduct";
+    List<string> catlist = new List<string>();
+    foreach (string category in ViewBag.categorylist)
+    {
+        catlist.Add(category);
+    }
+
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-center text-primary">Add Product</h1>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-controller="Product" asp-action="Editproduct">
+                        <div class="form-group">
+                            <lable asp-for="Name">Prodcut Name</lable>
+                            <input type="hidden" asp-for="Productid" />
+                            <input type="text" asp-for="ProductName" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <lable asp-for="CatName">Select Category</lable>
+                            @Html.DropDownListFor(model=>model.CatName, new SelectList(catlist))
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="submit" class="btn btn-sm btn-outline-success float-md-none" />
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
