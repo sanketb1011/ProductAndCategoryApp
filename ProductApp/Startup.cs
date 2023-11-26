@@ -15,6 +15,7 @@ namespace ProductApp
 {
     public class Startup
     {
+        //StartUp class.
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
